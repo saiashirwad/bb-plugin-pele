@@ -10,7 +10,7 @@ const shape: Adapter = {
 };
 
 const text: Adapter = {
-  fill: (color) => tinted(color, 18, "var(--foreground)", 2),
+  fill: (color) => tinted(color, 10, "var(--foreground)", 4),
 };
 
 function adaptDeclarations(style: string, adapter: Adapter): string {
