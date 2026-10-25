@@ -18,6 +18,8 @@
   "include": [
     "server.ts",
     "app.tsx",
-    "colors.ts"
+    "colors.ts",
+    "mermaid.tsx",
+    "markdown-file.tsx"
   ]
 }
