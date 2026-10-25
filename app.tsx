@@ -5,6 +5,7 @@ import {
   type ExperimentalCodeFenceRendererProps,
 } from "@get-bb/plugin-sdk/app";
 import { render } from "pele";
+import { adaptAuthorColors } from "./colors";
 
 const tint = (percent: number) =>
   `color-mix(in oklab, var(--foreground) ${percent}%, var(--card))`;
@@ -28,13 +29,14 @@ const hostPalette = {
 
 function renderSvg(code: string, idPrefix: string): string | null {
   try {
-    return render(code, {
+    const { svg } = render(code, {
       idPrefix,
       fontFamily: getComputedStyle(document.body).fontFamily,
       fontSize: 14,
       linkSchemes: ["https", "http"],
       images: false,
-    }).svg;
+    });
+    return adaptAuthorColors(svg);
   } catch {
     return null;
   }
